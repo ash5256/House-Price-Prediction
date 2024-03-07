@@ -3,8 +3,19 @@ import numpy as np
 import pickle
 
 # Load the trained model
-model = pickle.load(open('https://raw.githubusercontent.com/ash5256/House-Price-Prediction/blob/main/new_rf_model.pkl', 'rb'))
-
+#model = pickle.load(open('https://raw.githubusercontent.com/ash5256/House-Price-Prediction/blob/main/new_rf_model.pkl', 'rb'))
+import requests
+import joblib
+ 
+model_url='https://raw.githubusercontent.com/ash5256/House-Price-Prediction/blob/main/new_rf_model.pkl'
+r=requests.get(model_url)
+ 
+if r.status_code==200:
+    with open('new_rf_model.pkl','wb') as f:
+        f.write(r.content)
+else:
+    print("Failed to download the model file")
+model = joblib.load('new_rf_model.pkl')
 # Streamlit app
 st.title('House Price Prediction')
 
