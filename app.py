@@ -3,7 +3,7 @@ import numpy as np
 import pickle
 
 # Load the trained model
-model = pickle.load(open('https://github.com/ash5256/House-Price-Prediction/blob/main/new_rf_model.pkl', 'rb'))
+model = pickle.load(open('https://raw.githubusercontent.com/ash5256/House-Price-Prediction/blob/main/new_rf_model.pkl', 'rb'))
 
 # Streamlit app
 st.title('House Price Prediction')
